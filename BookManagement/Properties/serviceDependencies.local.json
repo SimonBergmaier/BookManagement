@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "secrets1": {
+    "mssql1": {
       "secretStore": null,
       "resourceId": null,
-      "type": "secrets.user",
-      "connectionId": null
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:LocalDB"
     }
   }
 }
