@@ -29,7 +29,7 @@ namespace BookManagement.Controllers
                 .Include(b => b.Author)
                 .AsNoTracking()
                 .ToListAsync();
-        }
+        } 
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
@@ -55,14 +55,16 @@ namespace BookManagement.Controllers
         public void Put(int id, [FromBody] Book value)
         {
             _context.Books.Update(value);
-
+            _context.SaveChanges();
         }
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _context.Books.Remove(_context.Books.Find(id));
+            var book = _context.Books.Find(id);
+            _context.Books.Remove(book);
+            _context.SaveChanges();
         }
     }
 }
