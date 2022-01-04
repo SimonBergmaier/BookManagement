@@ -1,12 +1,10 @@
-﻿using System;
+﻿using BookManagement.Context;
+using BookManagement.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BookManagement.Context;
-using BookManagement.Models;
 
 namespace BookManagement.Controllers
 {

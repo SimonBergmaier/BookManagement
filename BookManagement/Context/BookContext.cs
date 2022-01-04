@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BookManagement.Models;
+﻿using BookManagement.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookManagement.Context
 {

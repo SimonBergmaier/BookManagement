@@ -1,10 +1,10 @@
+using BookManagement.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BookManagement.Context;
-using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
 namespace BookManagement
