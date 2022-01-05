@@ -20,6 +20,10 @@ namespace BookManagement.Controllers
         }
 
         // GET: api/Genre
+        /// <summary>
+        /// Lists all Genres with their corresponding Books and Authors
+        /// </summary>
+        /// <returns>A List of all Genres</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Genre>>> GetGenres()
         {
@@ -31,6 +35,11 @@ namespace BookManagement.Controllers
         }
 
         // GET: api/Genre/5
+        /// <summary>
+        /// Lists a specific Genre based on its ID.
+        /// </summary>
+        /// <param name="id">The ID to look for.</param>
+        /// <returns>The specific Genre.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Genre>> GetGenre(int id)
         {
@@ -49,7 +58,11 @@ namespace BookManagement.Controllers
         }
 
         // PUT: api/Genre/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Updates the Genre specified by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the Genre to be updated.</param>
+        /// <param name="genre">The new parameters of the Genre.</param>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGenre(int id, Genre genre)
         {
@@ -80,7 +93,11 @@ namespace BookManagement.Controllers
         }
 
         // POST: api/Genre
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Creates a new Genre.
+        /// </summary>
+        /// <param name="genre">The new Genre to create.</param>
+        /// <returns>A representation of the new Genre</returns>
         [HttpPost]
         public async Task<ActionResult<Genre>> PostGenre(Genre genre)
         {
@@ -91,6 +108,11 @@ namespace BookManagement.Controllers
         }
 
         // DELETE: api/Genre/5
+        /// <summary>
+        /// Deletes a Genre from the Database
+        /// </summary>
+        /// <param name="id">The ID of the Genre to delete.</param>
+        [HttpDelete("{id}")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGenre(int id)
         {
@@ -106,6 +128,11 @@ namespace BookManagement.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Checks if an Genre with the given ID exists.
+        /// </summary>
+        /// <param name="id">The ID of the Genre to check for.</param>
+        /// <returns>True if the Genre exists, False if not.</returns>
         private bool GenreExists(int id)
         {
             return _context.Genres.Any(g => g.GenreID == id);

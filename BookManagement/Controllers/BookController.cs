@@ -20,6 +20,10 @@ namespace BookManagement.Controllers
         }
 
         // GET: /Book
+        /// <summary>
+        /// Lists all Books with their Authors and Genre
+        /// </summary>
+        /// <returns>A List of all Books.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
@@ -28,9 +32,14 @@ namespace BookManagement.Controllers
                         .Include(b => b.Author)
                         .AsNoTracking()
                         .ToListAsync();
-        } 
+        }
 
         // GET /Book/5
+        /// <summary>
+        /// Displays a Book based on its ID.
+        /// </summary>
+        /// <param name="id">The ID of the Book to look for.</param>
+        /// <returns>The returned Book, if no Book was found an 404 Error is returned.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
@@ -42,6 +51,11 @@ namespace BookManagement.Controllers
         }
 
         // POST /Book
+        /// <summary>
+        /// Creates a new Book.
+        /// </summary>
+        /// <param name="book">The new Book to create.</param>
+        /// <returns>A representation of the new Book.</returns>
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook([FromBody] Book book)
         {
@@ -52,6 +66,11 @@ namespace BookManagement.Controllers
         }
 
         // PUT /Book/5
+        /// <summary>
+        /// Updates a Book based on its ID.
+        /// </summary>
+        /// <param name="id">The ID of the Book to edit.</param>
+        /// <param name="book">The edited parameters of the Book</param>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, [FromBody] Book book)
         {
@@ -81,6 +100,10 @@ namespace BookManagement.Controllers
         }
 
         // DELETE /Book/5
+        /// <summary>
+        /// Deletes a Book from the Database
+        /// </summary>
+        /// <param name="id">The ID of the Book to delete.</param>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
@@ -96,6 +119,11 @@ namespace BookManagement.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Checks if a Book with the given ID exists.
+        /// </summary>
+        /// <param name="id">The ID of the Book to check for.</param>
+        /// <returns>True if the Book exists, False if not.</returns>
         private bool BookExists(int id)
         {
             return _context.Books.Any(b => b.BookID == id);

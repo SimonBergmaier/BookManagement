@@ -21,6 +21,12 @@ namespace BookManagement.Controllers
 
 
         // GET: /Book
+        /// <summary>
+        /// Searches for Books that contain the query in either the Title, the Description,
+        /// the Authors Name or the Genres Name
+        /// </summary>
+        /// <param name="query">The Query to search for</param>
+        /// <returns>A list of Books which contain the search query, the List is empty an Error 404 is returned.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> Search([FromQuery]string query)
         {

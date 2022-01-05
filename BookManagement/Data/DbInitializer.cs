@@ -6,6 +6,7 @@ namespace BookManagement.Data
 {
     public class DbInitializer
     {
+        // Checks if the Database is already initialized, if not seed it with sample Data.
         public static void Initialize(BookContext context)
         {
             context.Database.EnsureCreated();
